@@ -5,7 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Scenes/Helix bug.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Solitaire Dice/Level_1_Scene.unity
+    guid: 27a0b5537c60a694682cd51d248ebb49
+  - enabled: 1
+    path: Assets/Scenes/Solitaire Dice/Level_2_Scene.unity
+    guid: 7ac81c6f095e71c48a317f0a3741cf57
+  - enabled: 1
+    path: Assets/Scenes/Solitaire Dice/Level_3_Scene.unity
+    guid: 3ddc096bfa1c609438b96076c0c35b42
+  - enabled: 1
+    path: Assets/Scenes/Solitaire Dice/Level_4_Scene.unity
+    guid: 769388838c55fe141aa5b1489a8f5199
+  - enabled: 1
+    path: Assets/Scenes/Solitaire Dice/Level_5_Scene.unity
+    guid: 3ef4bcc1bb5937b4b9327c8ce29d7b77
+  - enabled: 1
+    path: Assets/Scenes/Solitaire Dice/Level_6_Scene.unity
+    guid: 97a1a164501afa5468dbe6d16e92c750
   m_configObjects: {}
