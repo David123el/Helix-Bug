@@ -251,6 +251,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 291462655}
   m_Script: {fileID: 11500000, guid: aa6738b85aa842a42af3798b5d71e8d2, type: 3}
+--- !u!114 &291462657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114012311735439288, guid: b460105aa6154ff4e8963f5b32651af9,
+    type: 2}
+  m_PrefabInternal: {fileID: 291462655}
+  m_Script: {fileID: 11500000, guid: 05953a9c752ce28439b5178c56d05868, type: 3}
 --- !u!1001 &415697801
 Prefab:
   m_ObjectHideFlags: 0
@@ -1051,6 +1057,16 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayNextLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114172378191771642, guid: aba0383c40861ff41886203312af730e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 291462657}
+    - target: {fileID: 114172378191771642, guid: aba0383c40861ff41886203312af730e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba0383c40861ff41886203312af730e, type: 2}

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Controls the Game.
 /// </summary>
+[RequireComponent(typeof(SceneController))]
 public class GameplayController : MonoBehaviour
 {
     #region Fields & Properties
@@ -112,33 +113,7 @@ public class GameplayController : MonoBehaviour
                             {
                                 PlaceDice(diceContainerController);
 
-                                //check for win-condition.
-                                if (_currentDiceNumber == 6)
-                                {
-                                    //if there are 6 dice in the container.
-                                    if (diceContainerController.diceList.Count == 6)
-                                    {
-                                        for (int i = 0; i < diceContainerController.diceList.Count; i++)
-                                        {
-                                            if (diceContainerController.diceList[i].GetComponent<DiceData>()._diceNumber == i + 1)
-                                                i++;
-
-                                            if ((i == 5) && (diceContainerController.isFilled == false))
-                                            {
-                                                diceContainerController.isFilled = true;
-                                                _winConditionCounter++;
-                                            }
-
-                                            if (_winConditionCounter == numOfFilledContainersToWin)
-                                            {
-                                                _winConditionCounter = 0;
-
-                                                //enable "Next Level button.
-                                                nexlLevelButton.SetActive(true);
-                                            }
-                                        }
-                                    }
-                                }
+                                CheckForWinCondition();
                             }
                             else PlaceDice(_initialDiceContainerController);
                         }
@@ -160,18 +135,6 @@ public class GameplayController : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(0.1f);
-    }
-
-    private void PlaceDice(DiceContainerController diceContainerController)
-    {
-        //add the dice to the list of the touched container.
-        diceContainerController.diceList.Add(_currentSelectedDice);
-
-        //change the dice's position and renable physics simulation.
-        _currentSelectedDice.transform.position =
-            diceContainerController.diceContainerAnchor.position;
-        _currentSelectedDice.transform.SetParent(diceContainerController.transform.Find("Dice Parent"));
-        _currentSelectedDiceRB2D.simulated = true;
     }
 
     private void LiftDice()
@@ -199,6 +162,49 @@ public class GameplayController : MonoBehaviour
             (diceContainerController.diceList[diceContainerController.diceList.Count - 1]);
     }
 
+    private void PlaceDice(DiceContainerController diceContainerController)
+    {
+        //add the dice to the list of the touched container.
+        diceContainerController.diceList.Add(_currentSelectedDice);
+
+        //change the dice's position and renable physics simulation.
+        _currentSelectedDice.transform.position =
+            diceContainerController.diceContainerAnchor.position;
+        _currentSelectedDice.transform.SetParent(diceContainerController.transform.Find("Dice Parent"));
+        _currentSelectedDiceRB2D.simulated = true;
+    }
+
+    private void CheckForWinCondition()
+    {
+        //check for win-condition.
+        if (_currentDiceNumber == 6)
+        {
+            //if there are 6 dice in the container.
+            if (diceContainerController.diceList.Count == 6)
+            {
+                for (int i = 0; i < diceContainerController.diceList.Count; i++)
+                {
+                    if (diceContainerController.diceList[i].GetComponent<DiceData>()._diceNumber == i + 1)
+                        i++;
+
+                    if ((i == 5) && (diceContainerController.isFilled == false))
+                    {
+                        diceContainerController.isFilled = true;
+                        _winConditionCounter++;
+                    }
+
+                    if (_winConditionCounter == numOfFilledContainersToWin)
+                    {
+                        _winConditionCounter = 0;
+
+                        //enable "Next Level button.
+                        nexlLevelButton.SetActive(true);
+                    }
+                }
+            }
+        }
+    }
+
     private void ResetVariables()
     {
         _currentSelectedDice = null;
@@ -216,8 +222,7 @@ public class GameplayController : MonoBehaviour
                 arrayOfDiceContainerControllers[i].isFilled = false;
             }
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene()
-                .buildIndex + 1, LoadSceneMode.Single);
+            GetComponent<SceneController>().LoadNextScene();
         }
         else Debug.Log("Last Scene");
     }

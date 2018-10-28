@@ -9,31 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1930438785181098}
+  m_RootGameObject: {fileID: 1618701565122510}
   m_IsPrefabAsset: 1
---- !u!1 &1930438785181098
+--- !u!1 &1618701565122510
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4632610234324670}
-  - component: {fileID: 114750251049318668}
-  - component: {fileID: 114012311735439288}
+  - component: {fileID: 4334007719952732}
+  - component: {fileID: 114280210260205578}
   m_Layer: 0
-  m_Name: Gameplay Manager
+  m_Name: SceneController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4632610234324670
+--- !u!4 &4334007719952732
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1930438785181098}
+  m_GameObject: {fileID: 1618701565122510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,28 +40,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114012311735439288
+--- !u!114 &114280210260205578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1930438785181098}
+  m_GameObject: {fileID: 1618701565122510}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05953a9c752ce28439b5178c56d05868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114750251049318668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1930438785181098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6738b85aa842a42af3798b5d71e8d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numOfFilledContainersToWin: 2
-  UIPanel: {fileID: 114351822646085474, guid: aba0383c40861ff41886203312af730e, type: 2}
-  nexlLevelButton: {fileID: 0}
