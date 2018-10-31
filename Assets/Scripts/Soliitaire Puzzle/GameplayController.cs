@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -55,15 +54,15 @@ public class GameplayController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            Vector3 _touch = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            hit = Physics2D.Raycast(_touch, Vector2.zero);
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                Vector3 _touch = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                hit = Physics2D.Raycast(_touch, Vector2.zero);
 
-            //touchParticle.transform.position = _touch;
-            //touchParticle.Play();
-
-            StartCoroutine("MoveDice", hit);
+                StartCoroutine("MoveDice", hit);
+            }
         }
     }
 
@@ -221,6 +220,15 @@ public class GameplayController : MonoBehaviour
             {
                 arrayOfDiceContainerControllers[i].isFilled = false;
             }
+
+            //Save Data.
+            if (PlayerPrefs.GetInt("Player Level") > 0)
+            {
+                int temp = PlayerPrefs.GetInt("Player Level");
+                temp++;
+                PlayerPrefs.SetInt("Player Level", temp);
+            }
+            else PlayerPrefs.SetInt("Player Level", SceneManager.GetActiveScene().buildIndex + 1);
 
             GetComponent<SceneController>().LoadNextScene();
         }
