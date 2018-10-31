@@ -5,13 +5,9 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     Text currentLevelText;
-    public PlayerData playerData;
 
     private void Start()
     {
-        //playerData = new PlayerData();
-        //playerData._currentLevel = 1;
-
         //Load Data.
         if (PlayerPrefs.GetInt("Player Level") > 1)
             PlayerPrefs.GetInt("Player Level");
