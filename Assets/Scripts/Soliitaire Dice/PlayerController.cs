@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
     public void UpdateCurrentLevelUI()
     {
         if (PlayerPrefs.GetInt("Player Level") > 0)
-            currentLevelText.text = "Level: " + PlayerPrefs.GetInt("Player Level").ToString();
-        else currentLevelText.text = "Level: " + 1.ToString();
+            currentLevelText.text = "LEVEL " + PlayerPrefs.GetInt("Player Level").ToString();
+        else currentLevelText.text = "LEVEL " + 1.ToString();
     }
 }
 
