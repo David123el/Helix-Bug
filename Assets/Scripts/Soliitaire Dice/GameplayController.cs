@@ -96,7 +96,7 @@ public class GameplayController : MonoBehaviour
                 else if (_isDiceSelected == true)
                 {
                     //if there is enough space in the container.
-                    if (diceContainerController.diceList.Count < diceContainerController._maxNumOfCells)
+                    if (diceContainerController.diceList.Count < DiceContainerController._maxNumOfCells)
                     {
                         _currentDiceNumber = _currentSelectedDiceData._diceNumber;
                         //if the container is not empty.
