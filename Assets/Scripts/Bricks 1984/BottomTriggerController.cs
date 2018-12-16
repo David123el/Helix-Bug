@@ -15,18 +15,25 @@ public class BottomTriggerController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<BallController>() != null)
         {
+            var _ballController = collision.gameObject.GetComponent<BallController>();
+
             collision.gameObject.SetActive(false);
-            _gamePlayManager.balls.Remove(collision.gameObject.GetComponent<BallController>());            
+            _ballController.isBallOutOfField = true;
 
-        if (_gamePlayManager != null)
+            if (_gamePlayManager != null)
             {
-                if (_gamePlayManager.balls.Count <= 0)
+                for (int i = 0; i < _gamePlayManager.balls.Count; i++)
                 {
-                    //Bricks fall down one step.
-                    _gamePlayManager.ChangeBricksPosition();
+                    if (_gamePlayManager.balls.TrueForAll(x => x.isBallOutOfField))
+                    {
+                        _gamePlayManager.balls.FindAll(x => x.isBallOutOfField = false);
 
-                    //reset balls.
-                    _gamePlayManager.ResetBalls();
+                        //Bricks fall down one step.
+                        _gamePlayManager.ChangeBricksPosition();
+
+                        //reset balls.
+                        _gamePlayManager.ResetBalls();
+                    }
                 }
             }
         }

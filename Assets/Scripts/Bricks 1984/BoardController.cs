@@ -26,7 +26,7 @@ public class BoardController : MonoBehaviour
     private void MoveBoard()
     {
         var _fingerPosOnScreen = Input.GetTouch(0).position.x;
-        var _relativeFingerPosition = _fingerPosOnScreen / Screen.width;
+        //var _relativeFingerPosition = _fingerPosOnScreen / Screen.width;
 
         var _worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(_fingerPosOnScreen, transform.position.y));
 

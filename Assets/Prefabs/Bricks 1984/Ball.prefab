@@ -89,11 +89,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfe032fd77a63d4cb9865263cba8122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BallSpeed: 8
+  _timeIntervalToIncreaseBallSpeed: 2.5
+  _ballSpeedMultiplyer: 1.1
   _minBallSpeed: 0
   _maxBallSpeed: 0
   ballVelocity: 1.2
+  _BallSpeed: 12
+  _initialBallSpeed: 0
   _offsetToBoard: 0.5
+  isBallOutOfField: 0
+  _isBallLaunched: 0
   ballVelocityVector: {x: 0, y: 0}
 --- !u!212 &212124812141133944
 SpriteRenderer:

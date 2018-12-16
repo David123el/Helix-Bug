@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 60147564422546270}
   - component: {fileID: 50310843782103106}
   - component: {fileID: 114431003554558740}
+  - component: {fileID: 111992089060719994}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Untagged
@@ -148,6 +149,21 @@ PolygonCollider2D:
       - {x: 0.26256955, y: -0.29254425}
       - {x: 0.29503796, y: -0.24758214}
       - {x: 0.29254434, y: 0.24764538}
+--- !u!111 &111992089060719994
+Animation:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708458666668220}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 74ff6c78580d764478a31b9ed4574d00, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 74ff6c78580d764478a31b9ed4574d00, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114057698344596188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numberText: {fileID: 114407384991841814}
-  _numberOfHits: 3
+  _numberOfHits: 20
 --- !u!114 &114643500000610740
 MonoBehaviour:
   m_ObjectHideFlags: 1

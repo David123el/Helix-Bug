@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Game Over if Bricks reach the floor.
+/// </summary>
 public class FloorTriggerController : MonoBehaviour
 {
     [SerializeField] Canvas _gameOverCanvas;

@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bricks 1984/Level_1_Scene.unity
     guid: 7ed817461c4381d429eda48636c9b538
+  - enabled: 1
+    path: Assets/Scenes/Bricks 1984/Level_2_Scene.unity
+    guid: f6101977f7c81a8428154f8d621fa239
   m_configObjects: {}

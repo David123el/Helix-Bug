@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BricksGamePlayManager : MonoBehaviour
 {
-    public bool isGameStarted = false;
+    //public bool isGameStarted = false;
     public int numberOfBalls;
     public List<BallController> balls;
     public List<BrickController> bricks;
+
+    private bool areBallsLaunched = false;
 
     [SerializeField] BoardController _boardController;
     [SerializeField] GameObject ball;
@@ -25,19 +27,22 @@ public class BricksGamePlayManager : MonoBehaviour
 	
 	void Update ()
     {
-		if (!isGameStarted)
-        {
-            if (Input.touchCount > 0)
+		//if (!isGameStarted)
+        //{
+            if (!areBallsLaunched)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.touchCount > 0)
                 {
-                    Touch _touch = Input.GetTouch(0);
-                    var _fingerPos = Camera.main.ScreenToWorldPoint(_touch.position);
-
-                    StartCoroutine(BallLauncher(_fingerPos));
+                    if (Input.GetTouch(0).phase == TouchPhase.Began)
+                    {
+                        Touch _touch = Input.GetTouch(0);
+                        var _fingerPos = Camera.main.ScreenToWorldPoint(_touch.position);
+                        
+                        StartCoroutine(BallLauncher(_fingerPos));
+                    }
                 }
             }
-        }
+        //}
 
         if (bricks.Count == 0)
         {
@@ -53,21 +58,25 @@ public class BricksGamePlayManager : MonoBehaviour
     {
         if (balls != null)
         {
-            foreach (var item in balls)
+            for (int i = 0; i < balls.Count; i++)
             {
-                item.ballVelocityVector = new Vector2(_fingerPos.x - item.transform.position.x,
-                _fingerPos.y - item.transform.position.y);
-
-                item.ballVelocityVector.Normalize();
-                var _normalizedVelocity = item.ballVelocityVector.normalized;
-
-                item.LaunchOnTouch(_normalizedVelocity);
-                yield return new WaitForSeconds(0.1f);
-
                 if (_boardController != null)
+                {
+                    balls[i].ballVelocityVector = new Vector2(_fingerPos.x - balls[i].transform.position.x,
+                    Mathf.Clamp(Mathf.Abs(_fingerPos.y - balls[i].transform.position.y), _boardController.transform.position.y, Screen.height));
+
+                    balls[i].ballVelocityVector.Normalize();
+                    var _normalizedVelocity = balls[i].ballVelocityVector.normalized;
+
+                    balls[i].LaunchOnTouch(_normalizedVelocity);
+                    yield return new WaitForSeconds(0.1f);
+
+                    //if (_boardController != null)
                     _boardController.isGameStarted = true;
 
-                isGameStarted = true;
+                    //isGameStarted = true;
+                    areBallsLaunched = true;
+                }
             }
         }
     }
@@ -85,9 +94,17 @@ public class BricksGamePlayManager : MonoBehaviour
         if (_boardController != null)
             _boardController.isGameStarted = false;
 
-        isGameStarted = false;
+        //isGameStarted = false;
+        areBallsLaunched = false;
 
-        GenerateBalls();
+        foreach (var ball in balls)
+        {
+            ball.gameObject.SetActive(true);
+            ball._BallSpeed = ball._initialBallSpeed;
+            ball._isBallLaunched = false;
+        }
+
+        //GenerateBalls();
         LockBallsToBoard();
     }
 

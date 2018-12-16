@@ -9,6 +9,9 @@ public class BrickController : MonoBehaviour
     [SerializeField] int _numberOfHits;
 
     private BricksGamePlayManager _gameplayManager;
+    private Animation _animation;
+
+    //public AnimationClip animationClip;
 
     private void OnEnable()
     {
@@ -28,6 +31,7 @@ public class BrickController : MonoBehaviour
     void Start ()
     {
         _gameplayManager = FindObjectOfType<BricksGamePlayManager>();
+        _animation = GetComponent<Animation>();
 	}
 
     void Update ()
@@ -46,6 +50,7 @@ public class BrickController : MonoBehaviour
                 //EventManager.OnBrickGotHit(this);
                 _numberOfHits--;
                 _numberText.text = _numberOfHits.ToString();
+                _animation.Play();
 
                 if (_numberOfHits == 0)
                 {
