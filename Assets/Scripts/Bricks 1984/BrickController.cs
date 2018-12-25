@@ -34,7 +34,7 @@ public class BrickController : MonoBehaviour
     void Start ()
     {
         _gameplayManager = FindObjectOfType<BricksGamePlayManager>();
-        _animation = GetComponent<Animation>();
+        _animation = GetComponentInChildren<Animation>();
 	}
 
     void Update ()
