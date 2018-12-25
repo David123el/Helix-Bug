@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BricksGamePlayManager : MonoBehaviour
 {
-    //public bool isGameStarted = false;
     public int numberOfBalls;
     public List<BallController> balls;
     public List<BrickController> bricks;
@@ -27,30 +26,38 @@ public class BricksGamePlayManager : MonoBehaviour
 	
 	void Update ()
     {
-		//if (!isGameStarted)
-        //{
-            if (!areBallsLaunched)
+        if (!areBallsLaunched)
+        {
+            if (Input.touchCount > 0)
             {
-                if (Input.touchCount > 0)
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
-                    if (Input.GetTouch(0).phase == TouchPhase.Began)
-                    {
-                        Touch _touch = Input.GetTouch(0);
-                        var _fingerPos = Camera.main.ScreenToWorldPoint(_touch.position);
-                        
-                        StartCoroutine(BallLauncher(_fingerPos));
-                    }
+                    Touch _touch = Input.GetTouch(0);
+                    var _fingerPos = Camera.main.ScreenToWorldPoint(_touch.position);
+
+                    StartCoroutine(BallLauncher(_fingerPos));
                 }
             }
-        //}
+        }
 
+        //Display Game Won when all the bricks are destroyed.
         if (bricks.Count == 0)
         {
             foreach (var ball in balls)
             {
                 ball.gameObject.SetActive(false);
             }
+            _boardController.isGameStarted = false;
             DisplayGameWonCanvas();
+        }
+
+        //Increase balls speed after they are all launched.
+        if (balls.TrueForAll(x => x._isBallLaunched))
+        {
+            for (int i = 0; i < balls.Count; i++)
+            {
+                balls[i].IncreaseBallSpeedBySteps();
+            }
         }
 	}
 
@@ -76,6 +83,9 @@ public class BricksGamePlayManager : MonoBehaviour
 
                     //isGameStarted = true;
                     areBallsLaunched = true;
+
+                    //handle balls number indicator.
+                    if (i == balls.Count - 1) EventManager.OnAllBallsLeftTheBoardHandler();
                 }
             }
         }

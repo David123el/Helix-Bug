@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameStarted: 0
+  _numOfBallsUI: {fileID: 0}
 --- !u!68 &268608057
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2376,7 +2377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ccdb79dbba849f4cab2217fd6e8a1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfBalls: 50
+  numberOfBalls: 10
   balls: []
   bricks: []
   _boardController: {fileID: 268608056}

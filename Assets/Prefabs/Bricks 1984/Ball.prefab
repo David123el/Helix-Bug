@@ -94,7 +94,7 @@ MonoBehaviour:
   _minBallSpeed: 0
   _maxBallSpeed: 0
   ballVelocity: 1.2
-  _BallSpeed: 12
+  _BallSpeed: 10
   _initialBallSpeed: 0
   _offsetToBoard: 0.5
   isBallOutOfField: 0

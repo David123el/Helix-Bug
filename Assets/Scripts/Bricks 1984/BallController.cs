@@ -24,16 +24,6 @@ public class BallController : MonoBehaviour
 
     public Vector2 ballVelocityVector;
 
-    //private void OnEnable()
-    //{
-    //    BricksGamePlayManager._ballsAvailable.Add(this);
-    //}
-
-    //private void OnDisable()
-    //{
-    //    BricksGamePlayManager._ballsAvailable.Remove(this);
-    //}
-
     void Start ()
     {
         _board = FindObjectOfType<BoardController>();
@@ -48,10 +38,7 @@ public class BallController : MonoBehaviour
 	
 	void Update ()
     {
-        if (_isBallLaunched)
-        {
-            IncreaseBallSpeedBySteps();
-        }
+
     }
 
     public void LockBallToBoard()
@@ -73,7 +60,7 @@ public class BallController : MonoBehaviour
         _isBallLaunched = true;
     }
 
-    private void IncreaseBallSpeedBySteps()
+    public void IncreaseBallSpeedBySteps()
     {
         if (Time.time >= _initialTime + _timeIntervalToIncreaseBallSpeed)
         {
@@ -87,13 +74,10 @@ public class BallController : MonoBehaviour
         IncreaseBallSpeed();
         yield return new WaitForSeconds(5.0f);
     }
-
+    //ball speed needs fixing!
     public void IncreaseBallSpeed()
     {
         _BallSpeed *= _ballSpeedMultiplyer;
-
-        //_rb2D.velocity.Normalize();
-        //var _normalizedValue = _rb2D.velocity.normalized;
-        //_rb2D.velocity += _normalizedValue * ballVelocity;
+        //_rb2D.velocity += _BallSpeed;
     }
 }

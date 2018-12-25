@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Solitaire_Dice_Game_Assets_Sprite_Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 47
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e641950136a0edc479fa55b70e842677, type: 3}
+    - {fileID: 2800000, guid: e7a7cc76134327341927dc998dd7a7c5, type: 3}
+    - {fileID: 2800000, guid: 9ff066ed94038494da96aef5b7b8f57d, type: 3}
+    - {fileID: 2800000, guid: 8db8953605ffdb34c834b8431fc5badf, type: 3}
+    - {fileID: 2800000, guid: 6339050814cff9b4d970f828f70201e0, type: 3}
+    - {fileID: 2800000, guid: aaee9fd7eac49bc479b13a1b034e2086, type: 3}
+    - {fileID: 2800000, guid: e32847862bb9bad4ab262f05417fd92e, type: 3}
+    - {fileID: 2800000, guid: 3dce26182a7ce4d47837f0a2131bd6d3, type: 3}
+    - {fileID: 2800000, guid: 671a5fd6eaf7b8443bc4a450bb6fe38b, type: 3}
+    - {fileID: 2800000, guid: 2598f05accb1e5943922021aff77bd6c, type: 3}
+    - {fileID: 2800000, guid: 1467c7caa6bd0c54e8ca5ebc40f0c733, type: 3}
+    - {fileID: 2800000, guid: cc4a52ee581fb8641bb5c9cfeafd7693, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e641950136a0edc479fa55b70e842677, type: 3}
+  - {fileID: 21300000, guid: 8db8953605ffdb34c834b8431fc5badf, type: 3}
+  - {fileID: 21300000, guid: e7a7cc76134327341927dc998dd7a7c5, type: 3}
+  - {fileID: 21300000, guid: e32847862bb9bad4ab262f05417fd92e, type: 3}
+  - {fileID: 21300000, guid: 671a5fd6eaf7b8443bc4a450bb6fe38b, type: 3}
+  - {fileID: 21300000, guid: aaee9fd7eac49bc479b13a1b034e2086, type: 3}
+  - {fileID: 21300000, guid: 6339050814cff9b4d970f828f70201e0, type: 3}
+  - {fileID: 21300000, guid: 3dce26182a7ce4d47837f0a2131bd6d3, type: 3}
+  - {fileID: 21300000, guid: 2598f05accb1e5943922021aff77bd6c, type: 3}
+  - {fileID: 21300000, guid: 1467c7caa6bd0c54e8ca5ebc40f0c733, type: 3}
+  - {fileID: 21300000, guid: 9ff066ed94038494da96aef5b7b8f57d, type: 3}
+  - {fileID: 21300000, guid: cc4a52ee581fb8641bb5c9cfeafd7693, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - BG-Game
+  - Dice_2
+  - Button_Play
+  - Dice_5
+  - Dice_Tower
+  - Dice_4
+  - Dice_3
+  - Dice_6
+  - Line
+  - Logo
+  - Dice_1
+  - Settings
+  m_Tag: Solitaire_Dice_Game_Assets_Sprite_Atlas
+  m_IsVariant: 0

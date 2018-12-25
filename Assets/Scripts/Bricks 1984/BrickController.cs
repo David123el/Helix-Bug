@@ -7,6 +7,9 @@ public class BrickController : MonoBehaviour
 {
     [SerializeField] Text _numberText;
     [SerializeField] int _numberOfHits;
+    [SerializeField] ParticleSystem _explosionParticles;
+    [SerializeField] GameObject _BrickSpriteRenderer;
+    [SerializeField] GameObject _BrickCollider;
 
     private BricksGamePlayManager _gameplayManager;
     private Animation _animation;
@@ -43,20 +46,17 @@ public class BrickController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<BallController>() != null)
         {
-            if (_numberOfHits <= 0)
-                Destroy(gameObject);
-            else
-            {
-                //EventManager.OnBrickGotHit(this);
-                _numberOfHits--;
-                _numberText.text = _numberOfHits.ToString();
-                _animation.Play();
+            //EventManager.OnBrickGotHit(this);
+            _numberOfHits--;
+            _numberText.text = _numberOfHits.ToString();
+            _animation.Play();
 
-                if (_numberOfHits == 0)
-                {
-                    Destroy(gameObject);
-                    _gameplayManager.bricks.Remove(this);
-                }
+            if (_numberOfHits <= 0)
+            {
+                StartCoroutine("PlayExplosionEffect");
+
+                //Destroy(gameObject);
+                _gameplayManager.bricks.Remove(this);
             }
         }
     }
@@ -66,5 +66,16 @@ public class BrickController : MonoBehaviour
         brick._numberOfHits--;
         brick._numberText.text = _numberOfHits.ToString();
         Debug.Log(brick + brick._numberOfHits.ToString());
+    }
+
+    IEnumerator PlayExplosionEffect()
+    {
+        _BrickSpriteRenderer.SetActive(false);
+        _BrickCollider.SetActive(false);
+
+        _explosionParticles.Play();
+        yield return new WaitForSeconds(_explosionParticles.main.duration);
+
+        Destroy(gameObject);
     }
 }

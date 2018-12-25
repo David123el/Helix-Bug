@@ -13,6 +13,9 @@ public class FloorTriggerController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<BrickController>() != null)
         {
+            //Disable Board Movement.
+            //needs fixing.
+            EventManager.OnGamePausedHandler();
             _gameOverCanvas.gameObject.SetActive(true);
         }
     }
