@@ -16,6 +16,7 @@ public class FloorTriggerController : MonoBehaviour
             //Disable Board Movement.
             //needs fixing.
             EventManager.OnGamePausedHandler();
+
             _gameOverCanvas.gameObject.SetActive(true);
         }
     }

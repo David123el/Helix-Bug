@@ -6,8 +6,8 @@ public class BoardController : MonoBehaviour
 {
     public bool isGameStarted;
 
-    private Vector3 _InitialFingerPosWorldPoint;
-    private Vector3 _currentFingerposWorldPoint;
+    //private Vector3 _InitialFingerPosWorldPoint;
+    //private Vector3 _currentFingerposWorldPoint;
 
     [SerializeField] GameObject _numOfBallsUI;
     [SerializeField] float _lerpingMovementValue = 0.5f;
@@ -39,8 +39,8 @@ public class BoardController : MonoBehaviour
                 if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Stationary)
                     //|| IsMovementInverted(_currentFingerposWorldPoint))
                 {
-                    var _initialXFingerPos = Input.GetTouch(0).position.x;
-                    _InitialFingerPosWorldPoint = Camera.main.ScreenToWorldPoint(new Vector3(_initialXFingerPos, transform.position.y));
+                    //var _initialXFingerPos = Input.GetTouch(0).position.x;
+                    //_InitialFingerPosWorldPoint = Camera.main.ScreenToWorldPoint(new Vector3(_initialXFingerPos, transform.position.y));
                 }
 
                 if (Input.GetTouch(0).phase == TouchPhase.Moved)
@@ -58,7 +58,7 @@ public class BoardController : MonoBehaviour
     {
         var _fingerPosOnScreen = Input.GetTouch(0).position.x;
 
-        _currentFingerposWorldPoint = Camera.main.ScreenToWorldPoint(new Vector3(_fingerPosOnScreen, transform.position.y));
+        var _currentFingerposWorldPoint = Camera.main.ScreenToWorldPoint(new Vector3(_fingerPosOnScreen, transform.position.y));
 
         //var _deltaStep = _currentFingerposWorldPoint - _InitialFingerPosWorldPoint;
 

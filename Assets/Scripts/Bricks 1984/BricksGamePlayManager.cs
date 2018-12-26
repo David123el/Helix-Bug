@@ -9,11 +9,13 @@ public class BricksGamePlayManager : MonoBehaviour
     public List<BrickController> bricks;
 
     private bool areBallsLaunched = false;
+    private bool _isAimingMode = true;
 
     [SerializeField] BoardController _boardController;
     [SerializeField] GameObject ball;
     [SerializeField] Transform ballParent;
     [SerializeField] Canvas _gameWonCanvas;
+    [SerializeField] LineRenderer _aimingSystemGUI;
 
     void Start ()
     {
@@ -30,10 +32,26 @@ public class BricksGamePlayManager : MonoBehaviour
         {
             if (Input.touchCount > 0)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
                     Touch _touch = Input.GetTouch(0);
                     var _fingerPos = Camera.main.ScreenToWorldPoint(_touch.position);
+
+                    //aim / draw aim on the screen
+                    if (_isAimingMode)
+                    {
+                        _aimingSystemGUI.SetPosition(0, new Vector3(_boardController.transform.position.x, _boardController.transform.position.y));
+                        _aimingSystemGUI.SetPosition(1, _fingerPos);
+                    }
+                }
+
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                {
+                    Touch _touch = Input.GetTouch(0);
+                    var _fingerPos = Camera.main.ScreenToWorldPoint(_touch.position);
+
+                    _aimingSystemGUI.SetPosition(1, new Vector3(_boardController.transform.position.x, _boardController.transform.position.y));
+                    _isAimingMode = false;
 
                     StartCoroutine(BallLauncher(_fingerPos));
                 }
@@ -106,6 +124,7 @@ public class BricksGamePlayManager : MonoBehaviour
 
         //isGameStarted = false;
         areBallsLaunched = false;
+        _isAimingMode = true;
 
         foreach (var ball in balls)
         {

@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfe032fd77a63d4cb9865263cba8122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _board: {fileID: 114764677613274994, guid: cdf97b6f1e60580488f3198d9ff3afcd, type: 2}
   _timeIntervalToIncreaseBallSpeed: 2.5
   _ballSpeedMultiplyer: 1.1
   _minBallSpeed: 0

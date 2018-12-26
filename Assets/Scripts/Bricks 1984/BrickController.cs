@@ -9,8 +9,8 @@ public class BrickController : MonoBehaviour
     [SerializeField] int _numberOfHits;
     [SerializeField] ParticleSystem _explosionParticles;
     [SerializeField] GameObject _BrickSpriteRenderer;
-    [SerializeField] GameObject _BrickCollider;
 
+    private PolygonCollider2D _BrickCollider;
     private BricksGamePlayManager _gameplayManager;
     private Animation _animation;
 
@@ -30,11 +30,12 @@ public class BrickController : MonoBehaviour
     {
         _numberText.text = _numberOfHits.ToString();  
     }
-
+    
     void Start ()
     {
         _gameplayManager = FindObjectOfType<BricksGamePlayManager>();
         _animation = GetComponentInChildren<Animation>();
+        _BrickCollider = GetComponent<PolygonCollider2D>();
 	}
 
     void Update ()
@@ -71,7 +72,7 @@ public class BrickController : MonoBehaviour
     IEnumerator PlayExplosionEffect()
     {
         _BrickSpriteRenderer.SetActive(false);
-        _BrickCollider.SetActive(false);
+        _BrickCollider.enabled = false;
 
         _explosionParticles.Play();
         yield return new WaitForSeconds(_explosionParticles.main.duration);

@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BallController : MonoBehaviour
 {
-    private BoardController _board;
-
     [SerializeField] float _timeIntervalToIncreaseBallSpeed = 1.0f;
     [SerializeField] float _ballSpeedMultiplyer = 1.1f;
     [SerializeField] float _minBallSpeed;
@@ -14,6 +12,7 @@ public class BallController : MonoBehaviour
 
     Rigidbody2D _rb2D;
     private float _initialTime;
+    private BoardController _board;
 
     public float ballVelocity;
     public float _BallSpeed;
@@ -47,6 +46,7 @@ public class BallController : MonoBehaviour
             _rb2D.simulated = false;
 
         transform.position = new Vector2(_board.transform.position.x, _board.transform.position.y + _offsetToBoard);
+        Debug.Log(_board.transform.position.x);
     }
 
     public void LaunchOnTouch(Vector2 vector)
